@@ -9,7 +9,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core';
-import { Home } from './components/Home';
+import { WT } from './components/weather/WT';
 
 const theme = createMuiTheme({
 });
@@ -30,7 +30,7 @@ ReactDOM.render(
   <ThemeProvider theme={theme}>
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/" component={WT} />
         <Redirect to="/" />
       </Switch>
     </BrowserRouter>
