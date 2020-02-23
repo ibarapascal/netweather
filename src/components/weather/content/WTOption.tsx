@@ -59,9 +59,9 @@ export const WTOption = connect(
     const cityList = CityListPart.map((item: SelectUnit) => ({value: item.id.toString(), label: item.name}));
     return (
       <Grid container spacing={4}>
-        <Grid item xs={8}>
+        <Grid item xs={10}>
           <Typography gutterBottom variant="h5" component="h2">
-            Select city via option
+            Inputable select city
           </Typography>
           <CMSelection
             id='WT_SELECT_01'

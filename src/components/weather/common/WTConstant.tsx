@@ -3,14 +3,14 @@ import { ProcessService } from "../../../services/ProcessService";
 export class WTConstant {
 
   static readonly DATA_MAP = [
-    {id: '1', attr: 'dt', displayName: 'Time'},
-    {id: '2', attr: 'temp', displayName: 'Temperature'},
-    {id: '3', attr: 'weather', displayName: 'Weather'},
-    {id: '4', attr: 'pressure', displayName: 'Pressure'},
-    {id: '5', attr: 'speed', displayName: 'Wind Speed'},
-    {id: '6', attr: 'deg', displayName: 'Wind deg'},
-    {id: '7', attr: 'cloud', displayName: 'Cloud'},
-    {id: '8', attr: 'feels_like', displayName: 'Temperature Feeling'},
+    {id: '1', attr: 'dt', dispName: 'Time', suffix: ''},
+    {id: '2', attr: 'temp', dispName: 'Temperature', suffix: '°C'},
+    {id: '3', attr: 'weather', dispName: 'Weather', suffix: ''},
+    {id: '4', attr: 'speed', dispName: 'Wind Speed', suffix: 'm/s'},
+    {id: '5', attr: 'deg', dispName: 'Wind deg', suffix: '°'},
+    {id: '6', attr: 'cloud', dispName: 'Cloud', suffix: '%'},
+    {id: '7', attr: 'pressure', dispName: 'Pressure', suffix: 'Pa'},
+    {id: '8', attr: 'feels_like', dispName: 'Temperature Feeling', suffix: '°C'},
   ] as const;
 
   /**

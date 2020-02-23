@@ -7,11 +7,13 @@ import { Grid, Typography } from '@material-ui/core';
 import MUIDataTable from 'mui-datatables';
 import { WTService } from '../common/WTService';
 import { WTConstant } from '../common/WTConstant';
-// import { makeStyles } from '@material-ui/core/styles';
-// const useStyles = makeStyles(theme => ({
-//   root: {
-//   },
-// }));
+import { TimeService } from '../../../services/TimeService';
+import { makeStyles } from '@material-ui/core/styles';
+const useStyles = makeStyles(theme => ({
+  title: {
+    marginBottom: 20,
+  },
+}));
 
 interface Props {
   localStorage: LocalStorage,
@@ -52,33 +54,35 @@ export const WTTable = connect(
   }
   // You can use hooks here
   functionalRender: React.FC = () => {
-    // const classes = useStyles();
+    const classes = useStyles();
     const { forecast } = this.props;
     // const {} = this.state;
-    const displayData = WTService.generateTableData(forecast.list);
-    const columnsData: Array<TableColumnsUnit> = WTConstant.TABLE_SUBMAP.map(item => ({name: item.attr, label: item.displayName}));
+    const displayData = WTService.generateTableData(forecast);
+    const columnsData: Array<TableColumnsUnit> = WTConstant.TABLE_SUBMAP.map(item => ({name: item.attr, label: item.dispName}));
+    const sunrise = TimeService.ts2hhmmss(forecast.city.sunrise, forecast.city.timezone);
+    const sunset = TimeService.ts2hhmmss(forecast.city.sunset, forecast.city.timezone);
     return (
       <Grid container spacing={4}>
         <Grid item xs={12}>
-          <Typography gutterBottom variant="h5" component="h2">
+          <Typography gutterBottom variant="h5" component="h2" className={classes.title}>
             Weather forecast
           </Typography>
-          <MUIDataTable 
-              title={forecast.city.name}
-              data={displayData}
-              columns={columnsData}
-              options={{
-                responsive: 'scrollMaxHeight',
-                // rowsPerPage: 50,
-                // rowsPerPageOptions: [10, 15, 20],
-                search: false,
-                filter: false,
-                download: false,
-                print: false,
-                viewColumns: false,
-                selectableRows: 'none',
-              }}
-            />
+          <MUIDataTable
+            title={`${forecast.city.name} - Sunrise: ${sunrise} Sunset: ${sunset}`}
+            data={displayData}
+            columns={columnsData}
+            options={{
+              responsive: 'scrollMaxHeight',
+              // rowsPerPage: 50,
+              // rowsPerPageOptions: [10, 15, 20],
+              search: false,
+              filter: false,
+              download: false,
+              print: false,
+              viewColumns: false,
+              selectableRows: 'none',
+            }}
+          />
         </Grid>
       </Grid>
     )

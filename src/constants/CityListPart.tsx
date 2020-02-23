@@ -1,5 +1,32 @@
 export const CityListPart = [
   {
+    "id": 1850147,
+    "name": "Tokyo",
+    "country": "JP",
+    "coord": {
+      "lon": 139.691711,
+      "lat": 35.689499
+    }
+  },
+  {
+    "id": 2038349,
+    "name": "Beijing Shi",
+    "country": "CN",
+    "coord": {
+      "lon": 116.397057,
+      "lat": 39.916908
+    }
+  },
+  {
+    "id": 5128638,
+    "name": "New York",
+    "country": "US",
+    "coord": {
+      "lon": -75.499901,
+      "lat": 43.000351
+    }
+  },
+  {
     "id": 707860,
     "name": "Hurzuf",
     "country": "UA",

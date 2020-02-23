@@ -4,18 +4,20 @@ import { Store } from '../../store';
 import { InputAction } from '../../types/BaseTypes';
 import { LocalStorage } from '../../types/LocalStorage';
 import { CMGrid } from '../common/CMGrid';
-import { Grid } from '@material-ui/core';
-import { WTKey } from './content/WTKey';
-import { WTCity } from './content/WTCity';
-import { WTOption } from './content/WTOption';
+import { Grid, CircularProgress } from '@material-ui/core';
 import { WTTable } from './content/WTTable';
 import { actionsWithService, actions } from './WT-actions';
 import { ForecastReq } from '../../types/interface/GetForecast';
-// import { makeStyles } from '@material-ui/core/styles';
-// const useStyles = makeStyles(theme => ({
-//   root: {
-//   },
-// }));
+import { makeStyles } from '@material-ui/core/styles';
+const useStyles = makeStyles(theme => ({
+  loadingBox: {
+    width: '100%',
+    padding: 200,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
+}));
 
 interface Props {
   localStorage: LocalStorage,
@@ -25,6 +27,7 @@ interface Props {
 }
 
 interface State {
+  loading: boolean,
 }
 
 /**
@@ -43,6 +46,7 @@ export const WT: React.FC<Props> = connect(
   constructor(props: Props) {
     super(props);
     this.state = {
+      loading: false,
     };
   }
   static defaultProps = {
@@ -59,7 +63,9 @@ export const WT: React.FC<Props> = connect(
         id: localStorage.citySelected,
         appid: localStorage.apiKey
       }
+      this.setState({loading: true});
       await this.props.getForecast(reqParams);
+      this.setState({loading: false});
     }
   }
 
@@ -67,24 +73,19 @@ export const WT: React.FC<Props> = connect(
     return <this.functionalRender />
   }
   functionalRender: React.FC = () => {
-    // const classes = useStyles();
+    const classes = useStyles();
     // const {} = this.props;
-    // const {} = this.state;
+    const { loading } = this.state;
     return (
       <CMGrid>
         <Grid container spacing={4}>
-          <Grid item xs={12}>
-            <WTKey />
-          </Grid>
-          <Grid item xs={12}>
-            <WTOption />
-          </Grid>
-          <Grid item xs={12}>
-            <WTCity />
-          </Grid>
+          {loading ? <div className={classes.loadingBox}>
+            <CircularProgress />
+          </div> : <>
           <Grid item xs={12}>
             <WTTable />
           </Grid>
+          </>}
         </Grid>
       </CMGrid>
     )

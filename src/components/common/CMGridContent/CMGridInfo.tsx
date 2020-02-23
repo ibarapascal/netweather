@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Store } from '../../../store';
+import { WTSaleSuggestion } from '../../weather/content/WTSaleSuggestion';
 // import { makeStyles } from '@material-ui/core/styles';
 // const useStyles = makeStyles(theme => ({
 //   root: {
@@ -38,9 +39,7 @@ export const CMGridInfo: React.FC<Props> = connect(
   functionalRender: React.FC = () => {
     // const classes = useStyles();
     return (
-      <>
-        <div></div>
-      </>
+      <WTSaleSuggestion />
     )
   }
 });

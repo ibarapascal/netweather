@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Store } from '../../../store';
 import { CardMedia, Card, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import Header from '../../../assets/header.png'
 const useStyles = makeStyles(theme => ({
   root: {
     position: 'relative',
@@ -54,7 +55,7 @@ export const CMGridHeader: React.FC<Props> = connect(
           component="img"
           alt="Contemplative Reptile"
           height="200"
-          image="https://openweathermap.org/themes/openweathermap/assets/img/new-history-forecast-bulk.png"
+          image={Header}
           title="Contemplative Reptile"
         />
         <Typography gutterBottom variant="h1" component="h1" className={classes.font}>

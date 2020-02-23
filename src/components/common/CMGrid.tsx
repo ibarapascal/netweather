@@ -23,6 +23,14 @@ const useStyles = makeStyles(theme => ({
   mainContent: {
     minHeight: 1000,
     marginTop: 20,
+  },
+  info: {
+    marginTop: 20,
+    paddingLeft: 20,
+  },
+  sidebar: {
+    marginTop: 20,
+    paddingLeft: 20,
   }
 }));
 
@@ -68,13 +76,13 @@ export const CMGrid: React.FC<Props> = connect(
           <Grid item xs={12} className={classes.header}>
             <CMGridHeader />
           </Grid>
-          <Grid item xs={3}>
+          <Grid item xs={3} className={classes.sidebar}>
             <CMGridSidebar />
           </Grid>
           <Grid item xs={6} className={classes.mainContent}>
             {children}
           </Grid>
-          <Grid item xs={3}>
+          <Grid item xs={3} className={classes.info}>
             <CMGridInfo />
           </Grid>
           <Grid item xs={12} className={classes.footer}>

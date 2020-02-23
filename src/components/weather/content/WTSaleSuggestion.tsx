@@ -4,11 +4,17 @@ import { Store } from '../../../store';
 import { InputAction } from '../../../types/BaseTypes';
 import { LocalStorage } from '../../../types/LocalStorage';
 import { Grid, Typography } from '@material-ui/core';
-// import { makeStyles } from '@material-ui/core/styles';
-// const useStyles = makeStyles(theme => ({
-//   root: {
-//   },
-// }));
+import { TimeService } from '../../../services/TimeService';
+import { WTService } from '../common/WTService';
+import { makeStyles } from '@material-ui/core/styles';
+const useStyles = makeStyles(theme => ({
+  result: {
+    margin: 10,
+  },
+  details: {
+    marginLeft: 20,
+  }
+}));
 
 interface Props {
   localStorage: LocalStorage,
@@ -22,7 +28,7 @@ interface State {
 /**
  * Component description
  */
-export const WTCity = connect(
+export const WTSaleSuggestion = connect(
   (store: Store) => ({
     localStorage: store.localStorage,
     forecast: store.forecast,
@@ -49,15 +55,25 @@ export const WTCity = connect(
   }
   // You can use hooks here
   functionalRender: React.FC = () => {
-    // const classes = useStyles();
+    const classes = useStyles();
     const { forecast } = this.props;
     // const {} = this.state;
-    console.log(forecast);
+    const umbrellaDay = TimeService.ts2mmddhh(WTService.umbrellaDay(forecast.list), forecast.city.timezone);
+    const jacketDay = TimeService.ts2mmddhh(WTService.jacketDay(forecast.list), forecast.city.timezone);
     return (
       <Grid container spacing={4}>
         <Grid item xs={12}>
-          <Typography gutterBottom variant="h5" component="h2">
-            City info
+          <Typography gutterBottom variant="h5" component="h2" className={classes.result}>
+            Sell an umbrella: {umbrellaDay}
+          </Typography>
+          <Typography gutterBottom variant="subtitle1" component="h2" className={classes.details}>
+            Based on cloud's value first max.
+          </Typography>
+          <Typography gutterBottom variant="h5" component="h2" className={classes.result}>
+            Sell a jacket: {jacketDay}
+          </Typography>
+          <Typography gutterBottom variant="subtitle1" component="h2" className={classes.details}>
+            Based on temperature feeling's value first max.
           </Typography>
         </Grid>
       </Grid>
