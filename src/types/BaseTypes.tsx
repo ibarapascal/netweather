@@ -6,3 +6,15 @@ export class InputAction {
     this.value = null;
   }
 }
+
+export class ErrorMessage {
+  type: string;
+  head: string;
+  content: string;
+  res?: string;
+  constructor() {
+    this.type = '';
+    this.head = '';
+    this.content = '';
+  }
+}

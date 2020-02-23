@@ -9,6 +9,8 @@ import { WTKey } from './content/WTKey';
 import { WTCity } from './content/WTCity';
 import { WTOption } from './content/WTOption';
 import { WTTable } from './content/WTTable';
+import { actionsWithService, actions } from './WT-actions';
+import { ForecastReq } from '../../types/interface/GetForecast';
 // import { makeStyles } from '@material-ui/core/styles';
 // const useStyles = makeStyles(theme => ({
 //   root: {
@@ -16,14 +18,10 @@ import { WTTable } from './content/WTTable';
 // }));
 
 interface Props {
-  /**
-   * Props description
-   */
   localStorage: LocalStorage,
-  /**
-   * Props description
-   */
+  forecast: Store['forecast'],
   saveLocalStorage: (payload: InputAction) => void,
+  getForecast: (payload: ForecastReq) => void,
 }
 
 interface State {
@@ -35,9 +33,11 @@ interface State {
 export const WT: React.FC<Props> = connect(
   (store: Store) => ({
     localStorage: store.localStorage,
+    forecast: store.forecast,
   }),
   (dispatch: any) => ({
-    saveLocalStorage: (payload: InputAction) => dispatch({type: 'saveLocalStorageItem', payload}),
+    saveLocalStorage: (payload: InputAction) => dispatch(actions.saveLocalStorageItem(payload)),
+    getForecast: (payload: ForecastReq) => dispatch(actionsWithService.getForecast(payload)),
   })
 )(class extends React.Component<Props, State>{
   constructor(props: Props) {
@@ -49,6 +49,11 @@ export const WT: React.FC<Props> = connect(
   };
 
   async componentDidMount() {
+    const reqParams: ForecastReq = {
+      id: '2038349',
+      appid: 'b6907d289e10d714a6e88b30761fae22'
+    }
+    this.props.getForecast(reqParams);
   }
 
 // {
