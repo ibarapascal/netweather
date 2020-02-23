@@ -49,22 +49,19 @@ export const WT: React.FC<Props> = connect(
   };
 
   async componentDidMount() {
-    const reqParams: ForecastReq = {
-      id: '2038349',
-      appid: 'b6907d289e10d714a6e88b30761fae22'
-    }
-    this.props.getForecast(reqParams);
   }
 
-// {
-//   "id": 4705417,
-//   "name": "Las Lomas",
-//   "country": "US",
-//   "coord": {
-//     "lon": -98.775299,
-//     "lat": 26.36479
-//   }
-// },
+  async componentDidUpdate(prevProps: Props, prevState: State) {
+    const { localStorage } = this.props;
+    if (localStorage.citySelected !== prevProps.localStorage.citySelected
+      || localStorage.apiKey !== prevProps.localStorage.apiKey) {
+      const reqParams: ForecastReq = {
+        id: localStorage.citySelected,
+        appid: localStorage.apiKey
+      }
+      await this.props.getForecast(reqParams);
+    }
+  }
 
   render() {
     return <this.functionalRender />
@@ -80,13 +77,11 @@ export const WT: React.FC<Props> = connect(
             <WTKey />
           </Grid>
           <Grid item xs={12}>
-            <WTCity />
-          </Grid>
-          <Grid item xs={12}>
             <WTOption />
           </Grid>
-        </Grid>
-        <Grid container spacing={4}>
+          <Grid item xs={12}>
+            <WTCity />
+          </Grid>
           <Grid item xs={12}>
             <WTTable />
           </Grid>

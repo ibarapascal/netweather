@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Store } from '../../store';
-import Select from 'react-select';
+import Select, { createFilter } from 'react-select';
 // import { makeStyles } from '@material-ui/core/styles';
 // const useStyles = makeStyles(theme => ({
 //   root: {
@@ -92,6 +92,7 @@ export const CMSelection: React.FC<Props> = connect(
           options={dataList}
           onChange={(e: any) => onChange(e, id)}
           value={value ? value : new CMSelectionUnit()}
+          filterOption={createFilter({ignoreAccents: false})}
           {...customProps}
         />
         <div>

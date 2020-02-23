@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Store } from '../../../store';
 import { InputAction } from '../../../types/BaseTypes';
 import { LocalStorage } from '../../../types/LocalStorage';
+import { Grid, Typography } from '@material-ui/core';
 // import { makeStyles } from '@material-ui/core/styles';
 // const useStyles = makeStyles(theme => ({
 //   root: {
@@ -10,13 +11,8 @@ import { LocalStorage } from '../../../types/LocalStorage';
 // }));
 
 interface Props {
-  /**
-   * Props description
-   */
   localStorage: LocalStorage,
-  /**
-   * Props description
-   */
+  forecast: Store['forecast'],
   saveLocalStorage: (payload: InputAction) => void,
 }
 
@@ -29,6 +25,7 @@ interface State {
 export const WTCity = connect(
   (store: Store) => ({
     localStorage: store.localStorage,
+    forecast: store.forecast,
   }),
   (dispatch: any) => ({
     saveLocalStorage: (payload: InputAction) => dispatch({type: 'saveLocalStorageItem', payload}),
@@ -47,15 +44,23 @@ export const WTCity = connect(
   }
 
   render() {
-    return <this.functionalRender />
+    const { forecast } = this.props;
+    return forecast.cod === '200' ? <this.functionalRender /> : <></>;
   }
   // You can use hooks here
   functionalRender: React.FC = () => {
     // const classes = useStyles();
-    // const {} = this.props;
+    const { forecast } = this.props;
     // const {} = this.state;
+    console.log(forecast);
     return (
-      <></>
+      <Grid container spacing={4}>
+        <Grid item xs={12}>
+          <Typography gutterBottom variant="h5" component="h2">
+            City info
+          </Typography>
+        </Grid>
+      </Grid>
     )
   }
 });
