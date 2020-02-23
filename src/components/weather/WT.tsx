@@ -27,7 +27,6 @@ interface Props {
 }
 
 interface State {
-  loading: boolean,
 }
 
 /**
@@ -46,7 +45,6 @@ export const WT: React.FC<Props> = connect(
   constructor(props: Props) {
     super(props);
     this.state = {
-      loading: false,
     };
   }
   static defaultProps = {
@@ -63,9 +61,9 @@ export const WT: React.FC<Props> = connect(
         id: localStorage.citySelected,
         appid: localStorage.apiKey
       }
-      this.setState({loading: true});
+      this.props.saveLocalStorage({item: 'loading', value: true});
       await this.props.getForecast(reqParams);
-      this.setState({loading: false});
+      this.props.saveLocalStorage({item: 'loading', value: false});
     }
   }
 
@@ -74,8 +72,8 @@ export const WT: React.FC<Props> = connect(
   }
   functionalRender: React.FC = () => {
     const classes = useStyles();
-    // const {} = this.props;
-    const { loading } = this.state;
+    const { loading } = this.props.localStorage;
+    // const {} = this.state;
     return (
       <CMGrid>
         <Grid container spacing={4}>

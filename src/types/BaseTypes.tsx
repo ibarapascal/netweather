@@ -1,6 +1,6 @@
 export class InputAction {
   item: string;
-  value: string | Array<string> | null;
+  value: string | Array<string> | null | boolean;
   constructor() {
     this.item = '';
     this.value = null;

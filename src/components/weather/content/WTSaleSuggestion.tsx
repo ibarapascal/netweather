@@ -56,6 +56,7 @@ export const WTSaleSuggestion = connect(
   // You can use hooks here
   functionalRender: React.FC = () => {
     const classes = useStyles();
+    const { loading } = this.props.localStorage;
     const { forecast } = this.props;
     // const {} = this.state;
     const umbrellaDay = TimeService.ts2mmddhh(WTService.umbrellaDay(forecast.list), forecast.city.timezone);
@@ -63,6 +64,7 @@ export const WTSaleSuggestion = connect(
     return (
       <Grid container spacing={4}>
         <Grid item xs={12}>
+          {!loading && <>
           <Typography gutterBottom variant="h5" component="h2" className={classes.result}>
             Sell an umbrella: {umbrellaDay}
           </Typography>
@@ -75,6 +77,7 @@ export const WTSaleSuggestion = connect(
           <Typography gutterBottom variant="subtitle1" component="h2" className={classes.details}>
             Based on temperature feeling's value first max.
           </Typography>
+          </>}
         </Grid>
       </Grid>
     )
