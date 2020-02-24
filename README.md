@@ -1,44 +1,48 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# netbooks - demo
 
-## Available Scripts
+React + Typescript + Redux + Material-UI + ESLint + Styleguidist
 
-In the project directory, you can run:
+period: 2020/02/23 (1 day)  
 
-### `yarn start`
+![main view](https://github.com/ibarapascal/netweather/blob/master/src/temp/screenshot-01.jpg)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 1. How to run this  
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+1.1. Serve pages  [http://localhost:3000](http://localhost:3000)
 
-### `yarn test`
+```shell
+npm install
+yarn install
+yarn start
+```
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1.2. File history visualization by [gource](https://github.com/acaudwell/Gource)  
 
-### `yarn build`
+```shell
+gource --seconds-per-day 10 -1920x1080 --auto-skip-seconds 0.5
+```
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 2. What this is doing  
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Using React create a web application to display important weather information for the next 5 days.  
+The display should list out the expected weather for the next 5 days given a city as the input.  
+Display the following information.  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- 1.Best day to sell an umbrella.  
+- 2.Best day to sell a jacket.  
 
-### `yarn eject`
+## 3. What we can see
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+File structure and commit history visualization at 2020/02/24 10:00
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![2020/02/24 10:00](https://github.com/ibarapascal/netweather/blob/master/src/temp/screenshot-file-structure.jpg)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## 4. Related repo
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### netbooks
 
-## Learn More
+React + Typescript + Redux + Material-UI + ESLint + Styleguidist
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+period: 2020/01/31 - 2020/02/02 (3 days)  
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![main view](https://github.com/ibarapascal/netbooks/blob/master/src/temp/screenshot-main-view-20200202162746.jpg)
