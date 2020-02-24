@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Store } from '../../../store';
-import { InputAction } from '../../../types/BaseTypes';
 import { LocalStorage } from '../../../types/LocalStorage';
 import { Grid, Typography } from '@material-ui/core';
 import { TimeService } from '../../../services/TimeService';
@@ -19,7 +18,6 @@ const useStyles = makeStyles(theme => ({
 interface Props {
   localStorage: LocalStorage,
   forecast: Store['forecast'],
-  saveLocalStorage: (payload: InputAction) => void,
 }
 
 interface State {
@@ -34,7 +32,6 @@ export const WTSaleSuggestion = connect(
     forecast: store.forecast,
   }),
   (dispatch: any) => ({
-    saveLocalStorage: (payload: InputAction) => dispatch({type: 'saveLocalStorageItem', payload}),
   })
 )(class extends React.Component<Props, State>{
   constructor(props: Props) {

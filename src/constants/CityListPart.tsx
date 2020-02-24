@@ -27,6 +27,60 @@ export const CityListPart = [
     }
   },
   {
+    "id": 2643743,
+    "name": "London",
+    "country": "GB",
+    "coord": {
+      "lon": -0.12574,
+      "lat": 51.50853
+    }
+  },
+  {
+    "id": 3882428,
+    "name": "Los Angeles",
+    "country": "CL",
+    "coord": {
+      "lon": -72.349998,
+      "lat": -37.466671
+    }
+  },
+  {
+    "id": 2988507,
+    "name": "Paris",
+    "country": "FR",
+    "coord": {
+      "lon": 2.3488,
+      "lat": 48.853409
+    }
+  },
+  {
+    "id": 4140963,
+    "name": "Washington, D. C.",
+    "country": "US",
+    "coord": {
+      "lon": -77.036369,
+      "lat": 38.895111
+    }
+  },
+  {
+    "id": 1796236,
+    "name": "Shanghai",
+    "country": "CN",
+    "coord": {
+      "lon": 121.458061,
+      "lat": 31.222219
+    }
+  },
+  {
+    "id": 1790630,
+    "name": "Xian",
+    "country": "CN",
+    "coord": {
+      "lon": 108.928612,
+      "lat": 34.258331
+    }
+  },
+  {
     "id": 707860,
     "name": "Hurzuf",
     "country": "UA",

@@ -7,6 +7,7 @@ export type TableUnit = {
 }
 
 export class WTService {
+
   static generateTableData(forecast: ForecastRes): Array<TableUnit> {
     const timezoneDiff = forecast.city.timezone;
     return forecast.list.map(item => ({
@@ -27,11 +28,13 @@ export class WTService {
       return item;
     });
   }
+
   static umbrellaDay(list: Array<ForecastUnit>): number {
     const value = Math.max(...list.map(x => x.clouds.all));
     const unit = list.find(x => x.clouds.all === value);
     return Number(unit?.dt) ?? 0;
   }
+
   static jacketDay(list: Array<ForecastUnit>): number {
     const value = Math.min(...list.map(x => x.main.feels_like));
     const unit = list.find(x => x.main.feels_like === value);
