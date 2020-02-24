@@ -7,7 +7,7 @@ export class WTConstant {
     {id: '2', attr: 'temp', dispName: 'Temperature', suffix: '°C'},
     {id: '3', attr: 'weather', dispName: 'Weather', suffix: ''},
     {id: '4', attr: 'speed', dispName: 'Wind Speed', suffix: 'm/s'},
-    {id: '5', attr: 'deg', dispName: 'Wind deg', suffix: '°'},
+    {id: '5', attr: 'deg', dispName: 'Wind Degree', suffix: '°'},
     {id: '6', attr: 'cloud', dispName: 'Cloud', suffix: '%'},
     {id: '7', attr: 'pressure', dispName: 'Pressure', suffix: 'Pa'},
     {id: '8', attr: 'feels_like', dispName: 'Temperature Feeling', suffix: '°C'},

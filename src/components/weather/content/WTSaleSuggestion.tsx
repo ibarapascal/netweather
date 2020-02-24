@@ -59,8 +59,8 @@ export const WTSaleSuggestion = connect(
     const { loading } = this.props.localStorage;
     const { forecast } = this.props;
     // const {} = this.state;
-    const umbrellaDay = TimeService.ts2mmddhh(WTService.umbrellaDay(forecast.list), forecast.city.timezone);
-    const jacketDay = TimeService.ts2mmddhh(WTService.jacketDay(forecast.list), forecast.city.timezone);
+    const umbrellaDay = TimeService.ts2mmddhhmm(WTService.umbrellaDay(forecast.list), forecast.city.timezone);
+    const jacketDay = TimeService.ts2mmddhhmm(WTService.jacketDay(forecast.list), forecast.city.timezone);
     return (
       <Grid container spacing={4}>
         <Grid item xs={12}>

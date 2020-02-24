@@ -1,6 +1,6 @@
 export class TimeService {
 
-  static ts2mmddhh(timestampShort: number, timezoneDiff: number): string {
+  static ts2mmddhhmm(timestampShort: number, timezoneDiff: number): string {
     const date = new Date((timestampShort + timezoneDiff - 32400) * 1000);
     const mtemp = date.getMonth() + 1;
     const dtemp = date.getDate();

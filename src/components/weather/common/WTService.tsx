@@ -10,7 +10,7 @@ export class WTService {
   static generateTableData(forecast: ForecastRes): Array<TableUnit> {
     const timezoneDiff = forecast.city.timezone;
     return forecast.list.map(item => ({
-      dt: TimeService.ts2mmddhh(Number(item.dt), timezoneDiff),
+      dt: TimeService.ts2mmddhhmm(Number(item.dt), timezoneDiff),
       weather: item.weather[0].main,
       temp: item.main.temp,
       speed: item.wind.speed,
