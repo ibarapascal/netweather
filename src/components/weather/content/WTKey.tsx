@@ -1,10 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
+import {
+  Grid,
+  Typography
+} from '@material-ui/core';
+
 import { Store } from '../../../store';
 import { InputAction } from '../../../types/BaseTypes';
 import { LocalStorage } from '../../../types/LocalStorage';
-import { Grid, Typography } from '@material-ui/core';
 import { CMTextInput } from '../../common/CMTextInput';
+
 // import { makeStyles } from '@material-ui/core/styles';
 // const useStyles = makeStyles(theme => ({
 //   root: {
@@ -36,13 +42,13 @@ export const WTKey = connect(
     saveLocalStorage: (payload: InputAction) => dispatch({type: 'saveLocalStorageItem', payload}),
   })
 )(class extends React.Component<Props, State>{
+  static defaultProps = {
+  };
   constructor(props: Props) {
     super(props);
     this.state = {
     };
   }
-  static defaultProps = {
-  };
 
   // You can use classical life-cycle here
   async componentDidMount() {
@@ -76,8 +82,7 @@ export const WTKey = connect(
             }}
           />
         </Grid>
-        <Grid item xs={4}>
-        </Grid>
+        <Grid item xs={4} />
       </Grid>
     )
   }

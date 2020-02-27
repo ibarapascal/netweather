@@ -1,4 +1,4 @@
-import { ProcessService } from "../../../services/ProcessService";
+import { ProcessService } from '../../../services/ProcessService';
 
 export class WTConstant {
 

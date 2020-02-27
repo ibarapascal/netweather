@@ -1,11 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Store } from '../../../store';
-import { InputAction, SelectUnit } from '../../../types/BaseTypes';
-import { LocalStorage } from '../../../types/LocalStorage';
-import { Grid, Typography } from '@material-ui/core';
-import { CMSelectionUnit, CMSelection } from '../../common/CMSelection';
+
+import {
+  Grid,
+  Typography
+} from '@material-ui/core';
+
 import { CityListPart } from '../../../constants/CityListPart';
+import { Store } from '../../../store';
+import {
+  InputAction,
+  SelectUnit
+} from '../../../types/BaseTypes';
+import { LocalStorage } from '../../../types/LocalStorage';
+import {
+  CMSelection,
+  CMSelectionUnit
+} from '../../common/CMSelection';
 
 // import { makeStyles } from '@material-ui/core/styles';
 // const useStyles = makeStyles(theme => ({
@@ -32,13 +43,13 @@ export const WTOption = connect(
     saveLocalStorage: (payload: InputAction) => dispatch({type: 'saveLocalStorageItem', payload}),
   })
 )(class extends React.Component<Props, State>{
+  static defaultProps = {
+  };
   constructor(props: Props) {
     super(props);
     this.state = {
     };
   }
-  static defaultProps = {
-  };
 
   // You can use classical life-cycle here
   async componentDidMount() {
@@ -71,8 +82,7 @@ export const WTOption = connect(
             onChange={this.handleSelectFilter('citySelected')}
           />
         </Grid>
-        <Grid item xs={4}>
-        </Grid>
+        <Grid item xs={4} />
       </Grid>
     )
   }

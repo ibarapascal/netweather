@@ -1,5 +1,7 @@
 import { Map } from 'immutable';
+
 import { ErrorMessage } from './types/BaseTypes';
+
 const HOST = 'https://openweathermap.org';
 
 export async function getForecast(params?: Map<string, string>) {

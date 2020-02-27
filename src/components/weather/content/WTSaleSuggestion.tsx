@@ -1,23 +1,29 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
+import {
+  Grid,
+  Typography
+} from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+
+import { TimeService } from '../../../services/TimeService';
 import { Store } from '../../../store';
 import { LocalStorage } from '../../../types/LocalStorage';
-import { Grid, Typography } from '@material-ui/core';
-import { TimeService } from '../../../services/TimeService';
 import { WTService } from '../common/WTService';
-import { makeStyles } from '@material-ui/core/styles';
-const useStyles = makeStyles(theme => ({
+
+const useStyles = makeStyles((theme) => ({
   result: {
     margin: 10,
   },
   details: {
     marginLeft: 20,
-  }
+  },
 }));
 
 interface Props {
-  localStorage: LocalStorage,
-  forecast: Store['forecast'],
+  localStorage: LocalStorage;
+  forecast: Store['forecast'];
 }
 
 interface State {
@@ -32,24 +38,24 @@ export const WTSaleSuggestion = connect(
     forecast: store.forecast,
   }),
   (dispatch: any) => ({
-  })
-)(class extends React.Component<Props, State>{
+  }),
+)(class extends React.Component<Props, State> {
+  static defaultProps = {
+  };
   constructor(props: Props) {
     super(props);
     this.state = {
     };
   }
-  static defaultProps = {
-  };
-
   // You can use classical life-cycle here
   async componentDidMount() {
   }
 
   render() {
     const { forecast } = this.props;
-    return forecast.cod === '200' ? <this.functionalRender /> : <></>;
+    return forecast.cod === '200' && <this.functionalRender />;
   }
+
   // You can use hooks here
   functionalRender: React.FC = () => {
     const classes = useStyles();
@@ -61,22 +67,28 @@ export const WTSaleSuggestion = connect(
     return (
       <Grid container spacing={4}>
         <Grid item xs={12}>
-          {!loading && <>
-          <Typography gutterBottom variant="h5" component="h2" className={classes.result}>
-            Sell an umbrella: {umbrellaDay}
-          </Typography>
-          <Typography gutterBottom variant="subtitle1" component="h2" className={classes.details}>
-            Based on cloud's value first max.
-          </Typography>
-          <Typography gutterBottom variant="h5" component="h2" className={classes.result}>
-            Sell a jacket: {jacketDay}
-          </Typography>
-          <Typography gutterBottom variant="subtitle1" component="h2" className={classes.details}>
-            Based on temperature feeling's value first max.
-          </Typography>
-          </>}
+          {!loading && (
+            <>
+              <Typography gutterBottom variant="h5" component="h2" className={classes.result}>
+                Sell an umbrella:
+                {' '}
+                {umbrellaDay}
+              </Typography>
+              <Typography gutterBottom variant="subtitle1" component="h2" className={classes.details}>
+                Based on cloud&apos;s value first max.
+              </Typography>
+              <Typography gutterBottom variant="h5" component="h2" className={classes.result}>
+                Sell a jacket:
+                {' '}
+                {jacketDay}
+              </Typography>
+              <Typography gutterBottom variant="subtitle1" component="h2" className={classes.details}>
+                Based on temperature feeling&apos;s value first max.
+              </Typography>
+            </>
+          )}
         </Grid>
       </Grid>
-    )
+    );
   }
 });

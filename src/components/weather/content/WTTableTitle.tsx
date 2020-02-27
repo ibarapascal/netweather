@@ -1,18 +1,24 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
+import {
+  Grid,
+  Typography
+} from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+
+import { TimeService } from '../../../services/TimeService';
 import { Store } from '../../../store';
 import { LocalStorage } from '../../../types/LocalStorage';
-import { Grid, Typography } from '@material-ui/core';
-import { TimeService } from '../../../services/TimeService';
-import { makeStyles } from '@material-ui/core/styles';
-const useStyles = makeStyles(theme => ({
+
+const useStyles = makeStyles((theme) => ({
   title: {
   },
 }));
 
 interface Props {
-  localStorage: LocalStorage,
-  forecast: Store['forecast'],
+  localStorage: LocalStorage;
+  forecast: Store['forecast'];
 }
 
 interface State {
@@ -28,25 +34,26 @@ export const WTTableTitle = connect(
     forecast: store.forecast,
   }),
   (dispatch: any) => ({
-  })
-)(class extends React.Component<Props, State>{
+  }),
+)(class extends React.Component<Props, State> {
+  static defaultProps = {
+  };
   constructor(props: Props) {
     super(props);
     this.state = {
       timestampNow: Date.now(),
     };
   }
-  static defaultProps = {
-  };
 
   // You can use classical life-cycle here
   componentDidMount() {
-    setInterval(() => this.setState({timestampNow: Date.now()}), 1000);
+    setInterval(() => this.setState({ timestampNow: Date.now() }), 1000);
   }
 
   render() {
     return <this.functionalRender />;
   }
+
   // You can use hooks here
   functionalRender: React.FC = () => {
     const classes = useStyles();
@@ -55,7 +62,7 @@ export const WTTableTitle = connect(
     const sunrise = TimeService.ts2hhmmss(forecast.city.sunrise, forecast.city.timezone);
     const sunset = TimeService.ts2hhmmss(forecast.city.sunset, forecast.city.timezone);
     const currentTime = TimeService.ts2hhmmss(timestampNow / 1000, forecast.city.timezone);
-    const utcValue = forecast.city.timezone/3600;
+    const utcValue = forecast.city.timezone / 3600;
     const utc = utcValue >= 0 ? `+${utcValue}` : `${utcValue}`;
     return (
       <Grid container spacing={4}>
@@ -65,6 +72,6 @@ export const WTTableTitle = connect(
           </Typography>
         </Grid>
       </Grid>
-    )
+    );
   }
 });

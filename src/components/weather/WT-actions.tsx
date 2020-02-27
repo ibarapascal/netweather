@@ -1,7 +1,11 @@
 import { Map } from 'immutable';
+
 import * as service from '../../api';
-import { ForecastReq, ForecastRes } from '../../types/interface/GetForecast';
 import { InputAction } from '../../types/BaseTypes';
+import {
+  ForecastReq,
+  ForecastRes
+} from '../../types/interface/GetForecast';
 
 export const actions = {
   saveLocalStorageItem: (payload: InputAction) => ({type: 'saveLocalStorageItem', payload}),

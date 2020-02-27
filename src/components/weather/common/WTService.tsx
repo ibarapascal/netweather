@@ -1,6 +1,12 @@
-import { ForecastRes, ForecastUnit } from "../../../types/interface/GetForecast";
-import { TableAttr, WTConstant } from "./WTConstant";
-import { TimeService } from "../../../services/TimeService";
+import { TimeService } from '../../../services/TimeService';
+import {
+  ForecastRes,
+  ForecastUnit
+} from '../../../types/interface/GetForecast';
+import {
+  TableAttr,
+  WTConstant
+} from './WTConstant';
 
 export type TableUnit = {
   [K in TableAttr]: string | number;

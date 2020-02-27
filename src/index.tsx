@@ -1,15 +1,29 @@
+import './index.css';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from '@reduxjs/toolkit';
-import { reducer } from './reducer';
+import {
+  BrowserRouter,
+  Redirect,
+  Route,
+  Switch
+} from 'react-router-dom';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
-import { ThemeProvider, createMuiTheme } from '@material-ui/core';
+
+import {
+  createMuiTheme,
+  ThemeProvider
+} from '@material-ui/core';
+import {
+  applyMiddleware,
+  createStore
+} from '@reduxjs/toolkit';
+
 import { WT } from './components/weather/WT';
+import { reducer } from './reducer';
+import * as serviceWorker from './serviceWorker';
 
 const theme = createMuiTheme({
 });

@@ -1,14 +1,20 @@
+import MUIDataTable from 'mui-datatables';
 import React from 'react';
 import { connect } from 'react-redux';
+
+import {
+  Grid,
+  Typography
+} from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+
 import { Store } from '../../../store';
 import { TableColumnsUnit } from '../../../types/BaseTypes';
 import { LocalStorage } from '../../../types/LocalStorage';
-import { Grid, Typography } from '@material-ui/core';
-import MUIDataTable from 'mui-datatables';
-import { WTService } from '../common/WTService';
 import { WTConstant } from '../common/WTConstant';
-import { makeStyles } from '@material-ui/core/styles';
+import { WTService } from '../common/WTService';
 import { WTTableTitle } from './WTTableTitle';
+
 const useStyles = makeStyles(theme => ({
   title: {
     marginBottom: 20,
@@ -34,21 +40,20 @@ export const WTTable = connect(
   (dispatch: any) => ({
   })
 )(class extends React.Component<Props, State>{
+  static defaultProps = {
+  };
   constructor(props: Props) {
     super(props);
     this.state = {
     };
   }
-  static defaultProps = {
-  };
-
   // You can use classical life-cycle here
   async componentDidMount() {
   }
 
   render() {
     const { forecast } = this.props;
-    return forecast.cod === '200' ? <this.functionalRender /> : <></>;
+    return forecast.cod === '200' && <this.functionalRender />;
   }
   // You can use hooks here
   functionalRender: React.FC = () => {

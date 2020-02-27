@@ -1,9 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Store } from '../../../store';
-import { CardMedia, Card, Typography } from '@material-ui/core';
+
+import {
+  Card,
+  CardMedia,
+  Typography
+} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import Header from '../../../assets/header.png'
+
+import Header from '../../../assets/header.png';
+import { Store } from '../../../store';
+
 const useStyles = makeStyles(theme => ({
   root: {
     position: 'relative',
@@ -34,13 +41,13 @@ export const CMGridHeader: React.FC<Props> = connect(
   (dispatch: any) => ({
   })
 )(class extends React.Component<Props, State>{
+  static defaultProps = {
+  };
   constructor(props: Props) {
     super(props);
     this.state = {
     };
   }
-  static defaultProps = {
-  };
 
   async componentDidMount() {
   }

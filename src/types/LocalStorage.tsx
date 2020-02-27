@@ -1,4 +1,4 @@
-import { ErrorMessage } from "./BaseTypes";
+import { ErrorMessage } from './BaseTypes';
 
 export class LocalStorage {
     /**
