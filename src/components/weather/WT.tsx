@@ -83,7 +83,7 @@ export const WT: React.FC<Props> = connect(
   functionalRender: React.FC = () => {
     const classes = useStyles();
     const { loading } = this.props.localStorage;
-    const {} = this.state;
+    // const {} = this.state;
     return (
       <CMGrid>
         <Grid container spacing={4}>
