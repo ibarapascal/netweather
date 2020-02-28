@@ -87,15 +87,13 @@ export const WT: React.FC<Props> = connect(
     return (
       <CMGrid>
         <Grid container spacing={4}>
-          {loading ? (
-            <div className={classes.loadingBox}>
+          {loading ? <div className={classes.loadingBox}>
               <CircularProgress />
             </div>
-          ) : (
-            <Grid item xs={12}>
+          : <Grid item xs={12}>
                 <WTTable />
-              </Grid>
-          )}
+            </Grid>
+          }
         </Grid>
       </CMGrid>
     );
