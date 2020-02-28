@@ -15,12 +15,20 @@ period: 2020/02/23 (1 day)
 1.2. Try it locally by [http://localhost:3000](http://localhost:3000)
 
 ```shell
-npm install
 yarn install
 yarn start
 ```
 
-1.3. File history visualization by [gource](https://github.com/acaudwell/Gource)  
+1.3. TSI (typescript import sorter)
+
+```json
+  "importSorter.generalConfiguration.sortOnBeforeSave": true,
+  "importSorter.importStringConfiguration.tabSize": 2,
+  "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.type": "words",
+  "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.count": 1,
+```
+
+1.4. File history visualization by [gource](https://github.com/acaudwell/Gource)  
 
 ```shell
 gource --seconds-per-day 10 -1920x1080 --auto-skip-seconds 0.5
