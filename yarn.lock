@@ -8630,10 +8630,10 @@ ms@^2.1.1:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"
   integrity sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==
 
-mui-datatables@3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/mui-datatables/-/mui-datatables-3.1.0.tgz#72fac0b6ec76352a0189b1b14387f051b311426d"
-  integrity sha512-1hNmbbNCFWsyyMJX9N4UiseNL1N6jWtjSOZ2P6iS7bj4IxxPZfuIs53P44k0rO+GbSTWQiB35Dd23yOwsE0tUw==
+mui-datatables@3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/mui-datatables/-/mui-datatables-3.1.1.tgz#06d66ef14294e08b4fc082a60ab78c7134a95fb7"
+  integrity sha512-qIOouB/NCS+Jj2atvlXuAMQ9B5sR0rwQnR9LEzR8VXacnrbkr91HljdThjWsJpliamPy5cJYu+x636ZaJonFlw==
   dependencies:
     classnames "^2.2.6"
     lodash.assignwith "^4.2.0"
