@@ -7,7 +7,7 @@
     "@material-ui/icons": "4.9.1",
     "@reduxjs/toolkit": "1.4.0",
     "immutable": "4.0.0-rc.12",
-    "lodash": "4.17.15",
+    "lodash": "4.17.17",
     "mui-datatables": "3.1.4",
     "react": "16.13.1",
     "react-dom": "16.13.1",
