@@ -2075,10 +2075,10 @@
   resolved "https://registry.yarnpkg.com/@types/minimatch/-/minimatch-3.0.3.tgz#3dca0e3f33b200fc7d1139c0cd96c1268cadfd9d"
   integrity sha512-tHq6qdbT9U1IRSGf14CL0pUlULksvY9OZ+5eEgl1N7t+OA3tGvNpxJCzuKQlsNgCVwbAs670L1vcVQi8j9HjnA==
 
-"@types/mui-datatables@3.1.0":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@types/mui-datatables/-/mui-datatables-3.1.0.tgz#c508c8f1d4c2a02c7b5a501fdace98800403176c"
-  integrity sha512-01hKWAbdQhpvZGPgS7Ai/V7qYHDsxCpi/fOSmsHB6d5fS84TcawtYK/+5Q/QlR7vSPNnOyU2313whKEFPDK4sg==
+"@types/mui-datatables@3.1.1":
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/@types/mui-datatables/-/mui-datatables-3.1.1.tgz#c47e3c8a0b061a8121923cb9bbf20293cd766a26"
+  integrity sha512-dIrSLUqqFIY4xWOfIkhHW18yURbV0tK2E4268VUYJHdv2hPQy/Ua/QY6wIl6xXBYtQ1dkAAzQHlobRCg78hmdQ==
   dependencies:
     "@types/react" "*"
 
